@@ -44,6 +44,10 @@ public enum ShareError: Error {
    - parameter error: The error to attempt to convert.
    */
   internal init?(error: NSError?) {
+    guard let error = error else {
+      return nil
+    }
+    
     if error.domain != FBSDKShareErrorDomain {
       return nil
     }
